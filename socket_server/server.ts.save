@@ -1,0 +1,25 @@
+const { Server } requirecors: {
+    origin: "https://example.com"
+  } "socket.io";
+import express from "express";
+import { createServer } from "node:http";
+
+const app = express();
+const server = createServer(app);
+const io = new Server(server, {
+  cors: {
+    origin: "http://127.0.0.1:3000"
+  }
+});
+
+io.on("connection", socket => {
+	console.log("socket id", socket.id); 
+});
+
+io.on("input_message", function (msg) {
+	console.log(msg);
+});
+
+server.listen(3001, () => {
+	console.log("Server running!");
+});
