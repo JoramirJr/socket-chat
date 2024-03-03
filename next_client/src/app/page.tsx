@@ -9,7 +9,7 @@ export default function Page() {
 	const socket = io("http://127.0.0.1:3001");
 
 	socket.emit("connection");
-
+//
 	function handleSend() {
 		socket.emit("input_message", inputRef.current.value);
 	}
